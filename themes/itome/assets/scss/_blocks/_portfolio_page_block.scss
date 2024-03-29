@@ -1,0 +1,56 @@
+.portfolio_page_block {
+	width: 100%;
+    padding: em(52) em(310);
+    border-bottom: 1px solid #373737;
+    
+    @media(max-width: 1900px) {
+        padding: em(40) em(230);
+    }
+
+    @media(max-width: 1440px) {
+        padding: em(36) em(200);
+    }
+
+    @media(max-width: 1220px) {
+        padding: em(28) 0;
+    }
+
+    &__title {
+        font-size: em(42);
+        line-height: 100%;
+        font-weight: 600;
+        font-feature-settings: 'clig' off, 'liga' off;
+        letter-spacing: -0.02em;
+        color: $c-primary;
+
+        margin-bottom: 1.5rem;
+
+        @media(max-width: 1900px) {
+            font-size: em(32);
+
+            margin-bottom: 1.25rem;
+        }
+
+        @media(max-width: 1440px) {
+            font-size: em(28);
+        }
+    }
+
+    &__text {
+        font-size: em(24);
+        line-height: 2rem;
+        font-weight: 400;
+        font-feature-settings: 'clig' off, 'liga' off;
+        color: #fff;
+
+        @media(max-width: 1900px) {
+            font-size: em(18);
+            line-height: em(26,18);
+        }
+
+        @media(max-width: 1440px) {
+            font-size: em(16);
+            line-height: em(24,16);
+        }
+    }
+}

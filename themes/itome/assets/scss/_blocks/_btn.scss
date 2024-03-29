@@ -1,0 +1,134 @@
+$bg-filled: #000;
+$borderR: 12px;
+
+$paddingSide: 1.25em;
+$height: 3.5em;
+
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.25rem $paddingSide;
+	border-radius: $borderR;
+	font-family: $button-font;
+
+	font-size: em(24);
+	font-weight: 600;
+	line-height: 1em;
+
+	transition: all .25s;
+
+	@media(max-width: 1900px) {
+		font-size: em(18);
+		padding: 1rem;
+	}
+
+	&.disabled {
+		opacity: .4;
+	}
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+
+		transform: scaleX(1);
+
+		transition: transform .25s;
+
+		&--white {
+			fill: white;
+		}
+
+		&--black {
+			fill: black;
+		}
+
+		&--main {
+			fill: $c-primary;
+		}
+
+		&--left {
+			margin-right: .75rem;
+		}
+
+		&--right {
+			margin-left: .5em;
+		}
+	}
+
+	&__pic {
+		width: 1em;
+		height: 1em;
+		margin-left: 3em;
+
+		transition: transform .25s;
+
+		&--white {
+			fill: white;
+		}
+
+		&--black {
+			fill: black;
+		}
+	}
+
+	&--filled {
+		color: white;
+
+		background: $bg-filled;
+		border: 1px solid $bg-filled;
+
+		&:hover {
+			background: $c-primary;
+			color: #000;           
+		}
+
+
+	}
+
+	&--outlined {
+		font-size: em(18);
+		padding: 1rem 1.25rem;
+
+		border: 1px solid $c-primary;
+		border-radius: 100px;
+		color: $c-primary;
+
+		@media(max-width: 500px) {
+			font-size: em(16);
+			line-height: 1em;
+
+			padding: 1rem;
+		}
+
+		&:hover {
+			color: #000;
+			background: $c-primary;
+
+			svg {
+				fill: #000;
+			}
+		}
+	}
+
+	&--error {
+		color: white;
+
+		background: $c-error;
+
+		&:hover {
+			background: darken($c-error, 5%);           
+		}
+
+	}
+
+	&--succes {
+		color: white;
+
+		background: $c-success;
+
+		&:hover {
+			background: darken($c-success, 5%);           
+		}
+	}
+}

@@ -1,0 +1,24 @@
+plugin:
+    name: 'itome.portfolio::lang.plugin.name'
+    description: 'itome.portfolio::lang.plugin.description'
+    author: itome
+    icon: oc-icon-image
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Портфолио
+        url: itome/portfolio/cards
+        icon: icon-image
+        sideMenu:
+            side-menu-item:
+                label: Проекты
+                url: itome/portfolio/cards
+                icon: icon-th-list
+            side-menu-item2:
+                label: Категории
+                url: itome/portfolio/types
+                icon: icon-sitemap
+            side-menu-item3:
+                label: Года
+                url: itome/portfolio/years
+                icon: icon-align-justify

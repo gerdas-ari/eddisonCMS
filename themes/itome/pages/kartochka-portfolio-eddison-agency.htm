@@ -1,0 +1,103 @@
+title = "Карточка портфолио — EDDISON AGENCY"
+url = "/portfolio/:slug/:id"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Itome\Portfolio\Models\Cards;
+function onStart() {
+	$itemSlug = $this->param('slug');
+    $item = Cards::whereSlug($itemSlug)->first();
+    if (!$item) return Redirect::to('/404');
+    $this['card'] = $item;
+	$this->page['meta_title'] = $item->title .  ' — EDDISON AGENCY ';
+
+}
+?>
+==
+<main class="view" data-app-layout="view" data-app-layout-namespace="examples">
+    <section class="section portfolio_page">
+      <div class="portfolio_page__container container container--first"> 
+        <div class="portfolio_page__top"> 
+          <button class="portfolio_page__back_btn pagination__arrow pagination__arrow--back" data-history-back="" data-scroll="" data-scroll-fadeup="">
+            <svg class="icon icon--back">
+              <use xlink:href="#arrow_small"></use>
+            </svg> Все проекты
+          </button>
+          <div class="portfolio_page__top_wrap">
+            <div class="portfolio_page__tags portfolio_page__tags--top portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
+              <div class="portfolio_card__tag">creative</div>
+              <div class="portfolio_card__tag">construction</div>
+            </div>
+            <h1 class="portfolio_page__title" data-scroll="" data-scroll-fadeup="">Выставочный стенд Минвостокразвития России в рамках Всероссийского форума «Развитие малых городов и исторических поселений»</h1>
+            <div class="portfolio_page__tags portfolio_page__tags--bottom" data-scroll="" data-scroll-fadeup="">
+              <p class="portfolio_page__date">24 июля 2023</p>
+              <p class="portfolio_page__date portfolio_page__date--grey">Кампус ДВФУ</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio_page__img" data-scroll="" data-scroll-fadeup="">
+          <picture class="image">
+            <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+            <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+          </picture>
+        </div>
+        <div class="portfolio_page__content"> 
+          <div class="portfolio_page_block">
+            <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">Клиент</h2>
+            <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">Министерство Российской Федерации по развитию Дальнего Востока и Арктики</div>
+          </div>
+          <div class="portfolio_page_block">
+            <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">Что мы делали</h2>
+            <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">1. разработка концепции мероприятия <br> 2. застройка и оформление площадки <br> 3. организация мастер-классов и развлекательных зон <br> 4. организация фуд-корта <br> 5. концертно-развлекательная программа</div>
+          </div>
+          <div class="portfolio_page_block">
+            <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">О проекте</h2>
+            <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">Наша компания была выбрана для разработки выставочного стенда Минвостокразвития России в рамках Всероссийского форума "Развитие малых городов и исторических поселений" благодаря нашему опыту и экспертизе в организации подобных мероприятий. Мы приняли этот проект как особенно важный, так как он напрямую связан с развитием нашей страны, и мы были готовы вложить все свои силы и знания в его реализацию.</div>
+          </div>
+        </div>
+        <div class="portfolio_page__gallery" data-scroll="" data-scroll-fadeup="" data-gallery-slides="[&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;,&quot;/assets/img/portfolio_page_pic.jpg&quot;]">
+          <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="0" data-scroll="" data-scroll-fadeup="">
+            <picture class="image">
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+            </picture>
+          </div>
+          <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="1" data-scroll="" data-scroll-fadeup="">
+            <picture class="image">
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+            </picture>
+          </div>
+          <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="2" data-scroll="" data-scroll-fadeup="">
+            <picture class="image">
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+            </picture>
+          </div>
+          <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="3" data-scroll="" data-scroll-fadeup="">
+            <picture class="image">
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+            </picture>
+          </div>
+          <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="4" data-scroll="" data-scroll-fadeup="">
+            <picture class="image">
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.webp" type="image/webp"/>
+              <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_page_pic.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_page_pic.jpg" alt=""/>
+            </picture>
+          </div>
+          <div class="portfolio_page__img portfolio_page__img--empty portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="5" data-scroll="" data-scroll-fadeup="">
+            <p class="text">Еще 2 фотографий</p>
+          </div>
+        </div>
+        <div class="portfolio_page__bottom pagination" data-scroll="" data-scroll-fadeup=""><a class="pagination__arrow pagination__arrow--back">
+            <svg class="icon icon--back">
+              <use xlink:href="#arrow_small"></use>
+            </svg> Предыдущий проект</a><a class="pagination__arrow">Следующий проект 
+            <svg class="icon icon--forward">
+              <use xlink:href="#arrow_small"></use>
+            </svg></a></div>
+      </div>
+    </section>
+</main>

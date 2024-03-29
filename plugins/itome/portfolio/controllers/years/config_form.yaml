@@ -1,0 +1,10 @@
+name: Years
+form: $/itome/portfolio/models/years/fields.yaml
+modelClass: Itome\Portfolio\Models\Years
+defaultRedirect: itome/portfolio/years
+create:
+    redirect: 'itome/portfolio/years/update/:id'
+    redirectClose: itome/portfolio/years
+update:
+    redirect: itome/portfolio/years
+    redirectClose: itome/portfolio/years

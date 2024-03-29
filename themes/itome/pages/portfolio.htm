@@ -1,0 +1,69 @@
+title = "Портфолио — EDDISON AGENCY"
+url = "/portfolio"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Itome\Portfolio\Models\Years;
+use Itome\Portfolio\Models\Cards;
+use Itome\Portfolio\Models\Types;
+
+function onStart() {
+    
+    $typeSlug = $this->param('type');
+    // $brand = Brand::whereSlug($brandSlug)->first();
+    $types = $this['types'] = Types::all();
+    // $this['activeBrand'] = $brand ? $brand : $brands[0];
+    // if (!$brandSlug) {
+    //   return Redirect("/catalog/{$this['activeBrand']->slug}");
+    // }
+    // dd($type->brands);
+    // $this['items'] = $this['activeBrand']->items()->whereIsPublished(true)->orderBy('sort_order')->get();
+    $this['cards'] = Cards::whereIsPublished(true)->orderBy('sort_order')->get();
+    $this['years'] = Years::all();
+    // $this->page['title'] =  $this['activeBrand']->name;
+}
+?>
+==
+<main class="view" data-app-layout="view" data-app-layout-namespace="examples">
+    <section class="section portfolio">
+      <div class="portfolio__container container container--first"> 
+        <div class="section_block">
+          <h1 class="section_block__title" data-scroll="" data-scroll-fadeup="">Портфолио</h1>
+        </div>
+        <div class="portfolio__filters portfolio_filters" data-scroll="" data-scroll-fadeup="">
+          <div class="portfolio_filters__wrap"> 
+              
+              <a class="portfolio_filters__btn {{activeCategory ? '' : 'is-active'}}" href="/portfolio">Все проекты</a>
+              
+              {% for type in types %}
+              
+              <a class="portfolio_filters__btn {{activeCategory.id == type.id ?  'is-active' : '' }}" href="/portfolio/{{type.slug}}">{{type.name}}</a>
+              
+              {% endfor %}
+              <!-- <a class="portfolio_filters__btn" href="#">MICE</a>
+              <a class="portfolio_filters__btn" href="#">CREATIVE</a>
+              <a class="portfolio_filters__btn" href="#">CONSTRUCTION</a> -->
+          </div>
+          <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-placeholder="Все года" data-dropdown-readonly="true" data-dropdown-options="[{&quot;key&quot;:&quot;2023&quot;,&quot;value&quot;:&quot;2023&quot;},{&quot;key&quot;:&quot;2022&quot;,&quot;value&quot;:&quot;2022&quot;},{&quot;key&quot;:&quot;2021&quot;,&quot;value&quot;:&quot;2021&quot;},{&quot;key&quot;:&quot;2020&quot;,&quot;value&quot;:&quot;2020&quot;}]"></div>
+        </div>
+        <div class="portfolio__content">
+            
+            {% for card in cards %}
+            
+            <a class="portfolio_card" href="/portfolio/{{card.id}}" data-scroll="" data-scroll-fadeup="">
+            <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
+                <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.src}}" alt=""/>
+            </div>
+            <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
+              <div class="portfolio_card__tag">{{card.type.name}}</div>
+            </div>
+            <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">{{card.title}}</p>
+        </a>
+        
+        {% endfor %}
+        
+        </div>
+      </div>
+    </section>
+</main>

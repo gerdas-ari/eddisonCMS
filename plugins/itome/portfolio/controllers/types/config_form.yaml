@@ -1,0 +1,10 @@
+name: Types
+form: $/itome/portfolio/models/types/fields.yaml
+modelClass: Itome\Portfolio\Models\Types
+defaultRedirect: itome/portfolio/types
+create:
+    redirect: 'itome/portfolio/types/update/:id'
+    redirectClose: itome/portfolio/types
+update:
+    redirect: itome/portfolio/types
+    redirectClose: itome/portfolio/types

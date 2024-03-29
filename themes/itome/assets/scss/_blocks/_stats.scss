@@ -1,0 +1,17 @@
+.stats {
+	
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: em(28);
+
+        @media(max-width: 1220px) {
+            gap: em(20);
+        }
+
+        @media(max-width: 500px) {
+            grid-template-columns: 100%;
+            gap: em(64);
+        }
+    }
+}

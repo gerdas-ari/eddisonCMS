@@ -1,0 +1,15 @@
+.section {
+		
+	& + & {
+		padding-top: em(250);
+
+		@media(max-width: 1900px) {
+			padding-top: em(200);
+		}
+
+		@media(max-width: 500px) {
+			padding-top: em(120);
+		}
+	}
+
+}

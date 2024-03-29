@@ -1,0 +1,10 @@
+name: Cards
+form: $/itome/portfolio/models/cards/fields.yaml
+modelClass: Itome\Portfolio\Models\Cards
+defaultRedirect: itome/portfolio/cards
+create:
+    redirect: 'itome/portfolio/cards/update/:id'
+    redirectClose: itome/portfolio/cards
+update:
+    redirect: itome/portfolio/cards
+    redirectClose: itome/portfolio/cards

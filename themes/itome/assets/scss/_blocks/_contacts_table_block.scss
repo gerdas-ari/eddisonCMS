@@ -1,0 +1,179 @@
+.contacts_table_block {
+	border: 1px solid #373737;
+    background: #0B0B0B;
+    box-shadow: 0px 10px 36px 0px rgba(0, 0, 0, 0.08);	
+
+    transition: border .2s;
+
+    display: flex;
+    flex-direction: column;
+
+    &--map {
+        grid-column-start: 1;
+        grid-column-end: -1;
+    }
+
+    &:hover {
+        border: 1px solid $c-primary;
+
+        .contacts_table_block__btn {
+            background: $c-primary;
+            color: #0B0B0B;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+        text-align: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 2rem;
+        background: #0B0B0B;
+
+        border-bottom: 1px solid #373737;
+
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-size: em(26);
+        line-height: 100%;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fff;
+
+        transition: background .2s, color .2s;
+
+        @media(max-width: 1900px) {
+            font-size: em(20);
+
+            padding: 1.5rem;
+        }
+
+        @media(max-width: 1440px) {
+            font-size: em(18);
+
+            padding: 1.25rem .5rem;
+        }
+    }
+
+    &__main {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: em(32) 0; 
+
+        @media(max-width: 1900px) {
+            padding: em(20) 0;
+        }
+
+        @media(max-width: 1440px) {
+            padding: em(18) 0;
+        }
+    }
+
+    &__main_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        & + & {
+            margin-top: em(16);
+
+            @media(max-width: 1900px) {
+                margin-top: em(12);
+            }
+
+            @media(max-width: 1440px) {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &__caption {
+        color: #B2B2B2;
+        font-feature-settings: 'clig' off, 'liga' off;
+
+        font-size: em(18);
+        line-height: em(26,18);
+        font-weight: 400;
+
+        margin-bottom: .5rem;
+
+        @media(max-width: 1900px) {
+            font-size: em(14);
+            line-height: 1.25rem;
+
+            margin-bottom: .25rem;
+        }
+
+        @media(max-width: 1440px) {
+            font-size: em(12);
+            line-height: em(18,12);
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: flex-start;
+
+        font-size: em(24);
+        line-height: em(32,24);
+        font-weight: 600;
+        color: $c-primary;
+
+        transition: color .2s;
+
+        position: relative;
+
+        @media(max-width: 1900px) {
+            font-size: em(18);
+            line-height: em(26,18);
+        }
+
+        @media(max-width: 1440px) {
+            font-size: em(16);
+            line-height: em(24,16);
+        }
+
+        &:hover {
+            color: darken($color: $c-primary, $amount: 10%);
+
+            .arrow {
+                fill: darken($color: $c-primary, $amount: 10%);
+            }
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+
+            fill: $c-primary;
+
+            transition: fill .2s;
+
+            position: absolute;
+            top: 0;
+            right: -24px;
+
+            @media(max-width: 1900px) {
+                width: 16px;
+                height: 16px;
+
+                right: -20px;
+            }
+
+            @media(max-width: 1440px) {
+                width: 14px;
+                height: 14px;
+
+                right: -18px;
+            }
+        }
+    }
+}

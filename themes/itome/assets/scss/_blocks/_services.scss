@@ -1,0 +1,25 @@
+.services {
+	
+    &__content {
+        margin-top: em(68);
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: em(28);
+
+        @media(max-width: 1900px) {
+            margin-top: em(50);
+        }
+
+        @media(max-width: 1220px) {
+            grid-template-columns: 100%;
+            gap: em(20);
+
+            margin-top: em(40);
+        }
+
+        @media(max-width: 500px) {
+            margin-top: em(32);
+        }
+    }
+}

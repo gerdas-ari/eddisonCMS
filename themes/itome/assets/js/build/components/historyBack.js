@@ -1,0 +1,1 @@
+var contactsMap=function(){"use strict";return function(){const t=document.querySelector('[data-history-back=""]');t&&t.addEventListener("click",(()=>{history.back()}))}}();

@@ -1,0 +1,57 @@
+fields:
+    title:
+        label: Заголовок
+        span: full
+        type: text
+    place:
+        label: 'Место проведения'
+        span: auto
+        type: text
+    client:
+        label: Клиент
+        span: auto
+        type: text
+    about:
+        label: 'О проекте'
+        size: ''
+        span: auto
+        type: richeditor
+    result:
+        label: 'Что делали'
+        size: ''
+        span: auto
+        type: richeditor
+    images:
+        label: Галерея
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    year:
+        label: Год
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    type:
+        label: Категория
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    is_published:
+        label: Опубликовано
+        span: auto
+        type: switch
+    main_image:
+        label: 'Главное изображение'
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

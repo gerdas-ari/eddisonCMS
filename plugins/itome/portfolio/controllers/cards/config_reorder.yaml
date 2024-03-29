@@ -1,0 +1,4 @@
+title: Cards
+modelClass: Itome\Portfolio\Models\Cards
+toolbar:
+    buttons: reorder_toolbar

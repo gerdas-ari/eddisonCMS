@@ -1,0 +1,57 @@
+.reviews {
+    overflow: hidden;
+	
+    &__content {
+        margin-top: em(68);
+
+        @media(max-width: 1900px) {
+            margin-top: em(50);
+        }
+
+        @media(max-width: 1220px) {
+            margin-top: em(40);
+        }
+
+        @media(max-width: 500px) {
+            margin-top: em(20);
+        }
+    }
+
+    &__slider {
+        position: relative;
+
+        overflow: visible;
+    }
+
+    &__scroll {
+        height: 2px;
+        position: relative;
+        bottom: 1px;
+
+        border-radius: 0;
+
+        background: transparent;
+
+        z-index: 4;
+
+        .swiper-scrollbar-drag {
+            background: $c-primary;
+            border-radius: 0;
+        }
+    }
+
+    &__nav {
+        margin: em(52) auto 0;
+
+        display: flex;
+        width: fit-content;
+
+        @media(max-width: 1900px) {
+            margin-top: em(40);
+        }
+
+        @media(max-width: 1220px) {
+            margin-top: em(32);
+        }
+    }
+}

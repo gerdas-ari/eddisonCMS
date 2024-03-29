@@ -1,0 +1,56 @@
+.clients {
+    overflow: hidden;
+    
+    &__content {
+        margin-top: em(68);
+
+        @media(max-width: 1900px) {
+            margin-top: em(50);
+        }
+
+        @media(max-width: 1220px) {
+            margin-top: em(40);
+        }
+
+        @media(max-width: 500px) {
+            margin-top: em(32);
+        }
+    }
+
+    &__slider {
+        overflow: visible;
+        pointer-events: none;
+
+        .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+    }
+
+    &__slide {
+        width: em(260);
+        height: em(260);
+
+        padding: 0 em(20);
+
+        border-top: 1px solid #373737;
+        border-bottom: 1px solid #373737;
+        border-left: 1px solid #373737;
+
+        @media(max-width: 1900px) {
+            width: em(200);
+            height: em(200);
+
+            padding: 0 em(14);
+        }
+
+        @media(max-width: 1220px) {
+            width: em(160);
+            height: em(160);
+        }
+
+        @media(max-width: 500px) {
+            width: em(120);
+            height: em(120);
+        }
+    }
+}

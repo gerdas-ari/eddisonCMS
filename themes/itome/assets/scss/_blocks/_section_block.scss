@@ -1,0 +1,112 @@
+.section_block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	&--center {
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		width: 100%;
+
+		position: relative;
+		z-index: 2;
+	}
+
+	&__title {
+		font-family: $title-font;
+		font-size: em(88);
+		line-height: 100%;
+		font-weight: 400;
+		color: $c-primary;
+
+		letter-spacing: -0.02em;
+		font-feature-settings: 'clig' off, 'liga' off;
+		text-transform: uppercase;
+
+		@media(max-width: 1900px) {
+			font-size: em(64);
+		}
+
+		@media(max-width: 1440px) {
+			font-size: em(56);
+		}
+	
+		@media(max-width: 1220px) {
+			font-size: em(40);
+		}
+
+		@media(max-width: 500px) {
+			font-size: em(32);
+		}
+
+		.home & {
+			font-size: em(112);
+			line-height: 107%;
+			font-weight: 400;
+			color: #fff;
+
+			@media(max-width: 1900px) {
+				font-size: em(84);
+			}
+	
+			@media(max-width: 1440px) {
+				font-size: em(72);
+				line-height: em(78,72);
+			}
+		
+			@media(max-width: 1220px) {
+				font-size: em(60);
+				line-height: em(66,60);
+			}
+	
+			@media(max-width: 500px) {
+				font-size: em(48);
+				line-height: em(52,48);
+			}
+		}
+	}
+
+	&__text {
+		font-family: $text-font;
+		font-weight: 300;
+		font-size: em(16);
+		line-height: em(20,16);
+		color: #000;
+		letter-spacing: -0.02em;
+
+		margin-top: 1.25rem;
+
+		@media(max-width: 1300px) {
+			font-size: em(14);
+			line-height: em(18,14);
+
+			margin-top: 1rem;
+		}
+	}
+
+	&__buttons {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 2rem;
+		align-items: center;
+
+		margin-top: em(60);
+
+		@media(max-width: 1300px) {
+			margin-top: em(40);
+		}
+
+		@media(max-width: 500px) {
+			width: 100%;
+			gap: em(28);
+		}
+	}
+
+	&__btn {
+		
+		@media(max-width: 500px) {
+			width: 100%;
+		}
+	}
+}

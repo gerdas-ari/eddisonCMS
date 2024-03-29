@@ -1,0 +1,40 @@
+.index_projects {
+	
+    &__content {
+        margin-top: em(68);
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: em(52) em(28);
+
+        @media(max-width: 1900px) {
+            gap: em(40) em(28);
+
+            margin-top: em(50);
+        }
+
+        @media(max-width: 1440px) {
+            gap: em(36) em(28);
+        }
+
+        @media(max-width: 1220px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: em(36) em(20);
+
+            margin-top: em(40);
+        }
+
+        @media(max-width: 500px) {
+            grid-template-columns: 100%;
+            gap: em(32);
+
+            margin-top: em(32);
+
+            
+            .portfolio_card:nth-child(5),
+            .portfolio_card:nth-child(6) {
+                display: none;
+            }
+        }
+    }
+}

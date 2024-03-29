@@ -1,0 +1,26 @@
+// colors
+
+$c-primary: #D9D6AE;
+
+$c-grey: #eee;
+$c-black: #151515;
+$c-error: #F2453D;
+$c-success: #4CAF50;
+
+// fonts
+
+$title-font: 'ProximaNova', sans-serif;
+$text-font: 'ProximaNova', sans-serif;
+$button-font: 'ProximaNova', sans-serif;
+
+// utils
+
+$assetsPath: "/assets";
+//$assetsPath: '/themes/itome/assets';
+
+
+$defaultPixel: 16;
+
+@function em($pixel, $fontSize : $defaultPixel) {
+    @return calc($pixel / $fontSize) + em;
+}

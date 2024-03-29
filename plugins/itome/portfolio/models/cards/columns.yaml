@@ -1,0 +1,20 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        sortable: true
+    type_id:
+        label: Категория
+        type: text
+        searchable: true
+        sortable: true
+        relation: type
+        valueFrom: name
+    year_id:
+        label: Год
+        type: text
+        searchable: true
+        sortable: true
+        relation: year
+        valueFrom: name

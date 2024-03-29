@@ -1,0 +1,4 @@
+title: Years
+modelClass: Itome\Portfolio\Models\Years
+toolbar:
+    buttons: reorder_toolbar

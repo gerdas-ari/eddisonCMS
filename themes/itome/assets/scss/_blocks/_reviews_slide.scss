@@ -1,0 +1,118 @@
+.reviews_slide {
+    padding: em(52) em(32) em(80);
+
+    display: flex;
+    align-items: flex-start;
+
+    height: auto;
+
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #373737;
+
+    @media(max-width: 1900px) {
+        padding: em(40) em(28) em(60);
+    }
+
+    @media(max-width: 1220px) {
+        padding: em(40) em(20) em(60);
+    }
+
+    @media(max-width: 500px) {
+        padding: em(28) em(12) em(60);
+
+        flex-direction: column;
+    }
+
+    &:first-child {
+        border-left: 1px solid #373737;
+    }
+
+    &:last-child {
+        border-right: 1px solid #373737;
+    }
+
+    &__logo {
+        width: em(160);
+        height: em(160);
+
+        border-radius: 50%;
+
+        overflow: hidden;
+
+        margin-right: em(36);
+
+        flex: none;
+
+        @media(max-width: 1900px) {
+            width: em(120);
+            height: em(120);
+
+            margin-right: em(28);
+        }
+
+        @media(max-width: 1220px) {
+            width: em(100);
+            height: em(100);
+        }
+
+        @media(max-width: 500px) {
+            width: em(80);
+            height: em(80);
+
+            margin-right: em(0);
+            margin-bottom: em(20);
+        }
+
+        .image {
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__name {
+        font-feature-settings: 'clig' off, 'liga' off;
+        color: $c-primary;
+
+        font-size: em(52);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @media(max-width: 1900px) {
+            font-size: em(40);
+        }
+
+        @media(max-width: 1220px) {
+            font-size: em(32);
+        }
+    }
+
+    &__text {
+        font-size: em(20);
+        line-height: em(28,20);
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-weight: 400;
+
+        margin-top: 1rem;
+
+        @media(max-width: 1900px) {
+            font-size: em(16);
+            line-height: em(24,16);
+
+            margin-top: .75rem;
+        }
+
+        @media(max-width: 1220px) {
+            font-size: em(14);
+            line-height: 1.25rem;
+        }
+    }
+	
+    & + & {
+        border-left: 1px solid #373737;
+    }
+}
