@@ -25,6 +25,13 @@ class Years extends Model
 
     // protected $slugs = ['slug' => 'name'];
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = 
+    [
+        'name'
+    ];
+
     /**
      * @var array Validation rules
      */

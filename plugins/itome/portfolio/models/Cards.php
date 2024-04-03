@@ -26,6 +26,17 @@ class Cards extends Model
     protected $slugs = ['slug' => 'name'];
     public $guarded = ['id'];
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = 
+    [
+        'title',
+        'client',
+        'result',
+        'about',
+        'place',
+    ];
+
     /**
      * @var array Validation rules
      */

@@ -23,6 +23,13 @@ class Types extends Model
      */
     public $table = 'itome_portfolio_types';
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = 
+    [
+        'name'
+    ];
+
     /**
      * @var array Validation rules
      */
