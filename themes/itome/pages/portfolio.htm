@@ -53,7 +53,7 @@ function onStart() {
             
             {% for card in cards %}
             
-            <a class="portfolio_card" href="/portfolio/{{card.type.slug}}/{{card.slug}}" data-scroll="" data-scroll-fadeup="">
+            <a class="portfolio_card" href="/portfolio/card/{{card.slug}}" data-scroll="" data-scroll-fadeup="">
             <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
                 <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.path}}" alt=""/>
             </div>

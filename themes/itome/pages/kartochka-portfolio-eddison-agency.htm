@@ -1,5 +1,5 @@
 title = "Карточка портфолио — EDDISON AGENCY"
-url = "/portfolio/:slug/:cardSlug"
+url = "/portfolio/card/:cardSlug"
 layout = "default"
 is_hidden = 0
 ==
@@ -9,10 +9,7 @@ use Itome\Portfolio\Models\Types;
 function onStart() {
     $typeSlug = $this->param('slug');
 	$cardSlug = $this->param('cardSlug');
-    $item = Cards::whereHas('type', function ($query) use ($typeSlug) {
-        return $query->where('slug', $typeSlug);
-    })->where('slug', $cardSlug)->first();
-    //dd($item->toArray());
+    $item = Cards::where('slug', $cardSlug)->first();
     if (!$item) return Redirect::to('/404');
     
     $prev = Cards::where('is_published', 1)->where('created_at', '<', $item->created_at)->latest('created_at')->first();
@@ -38,7 +35,9 @@ function onStart() {
           <div class="portfolio_page__top_wrap">
             {% if card.type %}
                 <div class="portfolio_page__tags portfolio_page__tags--top portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                  <div class="portfolio_card__tag">{{card.type.name}}</div>
+                    {% for type in card.type %}
+                        <div class="portfolio_card__tag">{{type.name}}</div>
+                    {% endfor %}
                 </div>
             {% endif %}
             <h1 class="portfolio_page__title" data-scroll="" data-scroll-fadeup="">{{card.title}}</h1>
@@ -71,23 +70,25 @@ function onStart() {
               </div>
           {% endif %}
         </div>
-        <div class="portfolio_page__gallery" data-scroll="" data-scroll-fadeup="" data-gallery-slides='[{% for image in card.images %}{% if loop.last != loop.index%}"{{image.path}}",{% else %}"{{image.path}}"{% endif %}{% endfor %}]'>
-            {% for image in card.images %}
-                {% if loop.index0 <= 4 %}
-                   <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="{{ loop.index0}}" data-scroll="" data-scroll-fadeup="">
-                       <img class="image" data-lazy="data-lazy" data-src="{{image.path|resize(600, 400)}}" alt=""/>
+        {% if card.images|length %}
+            <div class="portfolio_page__gallery" data-scroll="" data-scroll-fadeup="" data-gallery-slides='[{% for image in card.images %}{% if loop.last != loop.index%}"{{image.path}}",{% else %}"{{image.path}}"{% endif %}{% endfor %}]'>
+                {% for image in card.images %}
+                    {% if loop.index0 <= 4 %}
+                       <div class="portfolio_page__img portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="{{ loop.index0}}" data-scroll="" data-scroll-fadeup="">
+                           <img class="image" data-lazy="data-lazy" data-src="{{image.path|resize(600, 400)}}" alt=""/>
+                      </div>
+                    {% endif %}
+                {% endfor %}
+                {% if card.images|length > 5  %}
+                  <div class="portfolio_page__img portfolio_page__img--empty portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="5" data-scroll="" data-scroll-fadeup="">
+                    <p class="text">Еще {{card.images|length - 5}} {{"itome.portfolio::lang.card.photos"|transchoice(card.images|length - 5)}}</p>
                   </div>
                 {% endif %}
-            {% endfor %}
-            {% if card.images|length > 5  %}
-              <div class="portfolio_page__img portfolio_page__img--empty portfolio_page__img--gallery" data-linked-modal="modal_gallery" data-id="5" data-scroll="" data-scroll-fadeup="">
-                <p class="text">Еще {{card.images|length - 5}} {{"itome.portfolio::lang.card.photos"|transchoice(card.images|length - 5)}}</p>
-              </div>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
         <div class="portfolio_page__bottom pagination" data-scroll="" data-scroll-fadeup="">
             {% if prevCard %}
-                <a class="pagination__arrow pagination__arrow--back" href="/portfolio/{{prevCard.type.slug}}/{{prevCard.slug}}">
+                <a class="pagination__arrow pagination__arrow--back" href="/portfolio/card/{{prevCard.slug}}">
                     <svg class="icon icon--back">
                       <use xlink:href="#arrow_small"></use>
                     </svg>
@@ -95,7 +96,7 @@ function onStart() {
                 </a>
             {% endif %}
             {% if nextCard %}
-                <a class="pagination__arrow" href="/portfolio/{{nextCard.type.slug}}/{{nextCard.slug}}" style="margin-left:auto;">
+                <a class="pagination__arrow" href="/portfolio/card/{{nextCard.slug}}" style="margin-left:auto;">
                     Следующий проект 
                     <svg class="icon icon--forward">
                       <use xlink:href="#arrow_small"></use>

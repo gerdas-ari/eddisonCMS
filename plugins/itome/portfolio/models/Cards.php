@@ -40,10 +40,17 @@ class Cards extends Model
         'main_image' => 'System\Models\File'
     ];
 
-    public $belongsTo = [
-        'type' => ['Itome\Portfolio\Models\Types'],
-        'year' => ['Itome\Portfolio\Models\Years'],
+    public $belongsToMany = [
+        'type' => [
+            'Itome\Portfolio\Models\Types',
+            'key' => 'card_id',
+            'otherKey' => 'type_id',
+            'table' => 'itome_portfolio_cards_types'
+        ],
+    ];
 
+    public $belongsTo = [
+        'year' => ['Itome\Portfolio\Models\Years'],
     ];
 
     public function getPhotoSrcAttribute()

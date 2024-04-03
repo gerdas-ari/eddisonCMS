@@ -3,6 +3,16 @@ url = "/"
 layout = "default"
 is_hidden = 0
 ==
+<?php
+use Itome\Portfolio\Models\Cards;
+
+function onStart() {
+    $cards = Cards::with('type')->orderBy('created_at')->limit(6)->get();
+    
+    $this['cards'] = $cards;
+}
+?>
+==
 <main class="view" data-app-layout="view" data-app-layout-namespace="examples">
     <section class="section home">
       <div class="home__bg" data-scroll="" data-scroll-fadeup="">
@@ -113,93 +123,30 @@ is_hidden = 0
         </div>
       </div>
     </section>
+    {% if cards %}
     <section class="section index_team index_projects">
       <div class="index_team__container container"> 
         <div class="section_block"> 
           <h2 class="section_block__title" data-scroll="" data-scroll-fadeup="">Наши проекты</h2>
         </div>
-        <div class="index_projects__content"><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
+        <div class="index_projects__content">
+            {% for card in cards %}
+                <a class="portfolio_card" href="/portfolio/card/{{card.slug}}" data-scroll="" data-scroll-fadeup="">
                     <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
+                        <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.path|resize(596, 670)}}" alt=""/>
                     </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
+                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup="">
+                        {% for type in card.type %}
+                            <div class="portfolio_card__tag">{{type.name}}</div>
+                        {% endfor %}
                     </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
-                    <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
-                    </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
-                    </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
-                    <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
-                    </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
-                    </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
-                    <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
-                    </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
-                    </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
-                    <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
-                    </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
-                    </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a><a class="portfolio_card" href="/portfolio_page" data-scroll="" data-scroll-fadeup="">
-                    <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                      <picture class="image">
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.webp" type="image/webp"/>
-                        <source data-lazy="data-lazy" data-srcset="/themes/itome/assets/img/portfolio_pic_1.jpg" type="image/jpg"/><img class="image" data-lazy="data-lazy" data-src="/themes/itome/assets/img/portfolio_pic_1.jpg" alt=""/>
-                      </picture>
-                    </div>
-                    <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-                      <div class="portfolio_card__tag">event</div>
-                      <div class="portfolio_card__tag">mice</div>
-                      <div class="portfolio_card__tag">creative</div>
-                      <div class="portfolio_card__tag">construction</div>
-                    </div>
-                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">Празднование 120-летия АО &quot;Владхлеб&quot;</p></a>
+                    <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">{{card.title}}</p>
+                </a>
+            {% endfor %}
         </div><a class="index_team__btn btn btn--outlined" href="/portfolio" data-scroll="" data-scroll-fadeup=""><span class="btn__text">Все проекты</span></a>
       </div>
     </section>
+    {% endif %}
     <section class="section index_team">
       <div class="index_team__container container"> 
         <div class="section_block"> 
