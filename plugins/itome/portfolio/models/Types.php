@@ -34,7 +34,7 @@ class Types extends Model
     protected $slugs = ['slug' => 'name'];
 
     public $hasMany = [
-        'cards' => ['Itome\Portfolio\Models\Cards']
+        'cards' => ['Itome\Portfolio\Models\Cards', 'key' => 'type_id']
     ];
 
     public $belongsTo = [

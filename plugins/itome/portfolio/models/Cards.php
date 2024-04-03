@@ -15,7 +15,7 @@ class Cards extends Model
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
 
     /**
@@ -34,6 +34,10 @@ class Cards extends Model
 
     public $attachMany = [
         'images' => 'System\Models\File'
+    ];
+
+    public $attachOne = [
+        'main_image' => 'System\Models\File'
     ];
 
     public $belongsTo = [

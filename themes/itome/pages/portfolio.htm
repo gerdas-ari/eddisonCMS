@@ -1,7 +1,7 @@
 title = "Портфолио — EDDISON AGENCY"
 url = "/portfolio"
 layout = "default"
-is_hidden = 0
+is_hidden = 1
 ==
 <?php
 use Itome\Portfolio\Models\Years;
@@ -9,19 +9,21 @@ use Itome\Portfolio\Models\Cards;
 use Itome\Portfolio\Models\Types;
 
 function onStart() {
-    
+    $year = request()->get('year');
     $typeSlug = $this->param('type');
     // $brand = Brand::whereSlug($brandSlug)->first();
     $types = $this['types'] = Types::all();
-    // $this['activeBrand'] = $brand ? $brand : $brands[0];
-    // if (!$brandSlug) {
-    //   return Redirect("/catalog/{$this['activeBrand']->slug}");
-    // }
-    // dd($type->brands);
-    // $this['items'] = $this['activeBrand']->items()->whereIsPublished(true)->orderBy('sort_order')->get();
-    $this['cards'] = Cards::whereIsPublished(true)->orderBy('sort_order')->get();
+    $this['cards'] = Cards::whereIsPublished(true)
+    ->whereHas('year', function ($query) use ($year) {
+        if ($year) {
+            return $query->where('name', $year);
+        } else {
+            return $query;
+        }
+    })->with('main_image')->orderBy('sort_order')->get();
+    
+    $this['paramsYear'] = $year;
     $this['years'] = Years::all();
-    // $this->page['title'] =  $this['activeBrand']->name;
 }
 ?>
 ==
@@ -45,15 +47,15 @@ function onStart() {
               <a class="portfolio_filters__btn" href="#">CREATIVE</a>
               <a class="portfolio_filters__btn" href="#">CONSTRUCTION</a> -->
           </div>
-          <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-placeholder="Все года" data-dropdown-readonly="true" data-dropdown-options="[{&quot;key&quot;:&quot;2023&quot;,&quot;value&quot;:&quot;2023&quot;},{&quot;key&quot;:&quot;2022&quot;,&quot;value&quot;:&quot;2022&quot;},{&quot;key&quot;:&quot;2021&quot;,&quot;value&quot;:&quot;2021&quot;},{&quot;key&quot;:&quot;2020&quot;,&quot;value&quot;:&quot;2020&quot;}]"></div>
+          <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-readonly="true" {% if paramsYear %}data-default-value='{"key":"{{paramsYear}}","value":"{{paramsYear}}"}'{% else %}data-default-value='{"key":"Все года","value":""}'{% endif %} data-dropdown-options='[{"key":"Все года","value":""},{% for year in years %}{% if loop.last != loop.index%}{"key":"{{year.name}}","value":"{{year.name}}"},{% else %}{"key":"{{year.name}}","value":"{{year.name}}"}{% endif %}{% endfor %}]'></div>
         </div>
         <div class="portfolio__content">
             
             {% for card in cards %}
             
-            <a class="portfolio_card" href="/portfolio/{{card.id}}" data-scroll="" data-scroll-fadeup="">
+            <a class="portfolio_card" href="/portfolio/{{card.type.slug}}/{{card.slug}}" data-scroll="" data-scroll-fadeup="">
             <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
-                <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.src}}" alt=""/>
+                <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.path}}" alt=""/>
             </div>
             <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
               <div class="portfolio_card__tag">{{card.type.name}}</div>

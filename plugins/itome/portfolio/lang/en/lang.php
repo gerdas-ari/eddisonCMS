@@ -4,6 +4,6 @@
         'description' => ''
     ],
     'card' => [
-        'photos' => 'фотография|фотографии|фотографий',
+        'photos' => 'photo|photos|photos',
     ],
 ];

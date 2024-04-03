@@ -167,4 +167,19 @@ document.addEventListener("DOMContentLoaded", _ => {
         new Input(item, validationMessages);
     })
 
+
+    document.addEventListener('dropdown::optionSet', e => {
+        const year = e.detail.data.value;
+        const searchParams = new URLSearchParams(location.search);
+
+        if (year) {
+            searchParams.set('year', year);
+        } else {
+            searchParams.delete('year');
+        }
+
+        const newUrl = `${location.origin}${location.pathname }?${searchParams.toString()}`;
+
+        location.href = newUrl
+    })
 });

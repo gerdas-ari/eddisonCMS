@@ -55,3 +55,14 @@ fields:
             extension: auto
         span: auto
         type: fileupload
+    slug:
+        label: Слаг
+        span: auto
+        disabled: 0
+        readOnly: 1
+        hidden: 0
+        required: 0
+        preset:
+            field: title
+            type: slug
+        type: text

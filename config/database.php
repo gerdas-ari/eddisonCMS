@@ -32,7 +32,7 @@ return [
 
     'connections' => [
         'sqlite' => [
-            'database' => env('DB_DATABASE', storage_path('database.sqlite')),
+            'database' => env('DB_DATABASE', 'D:\\Programs\\OSPanel\\domains\\eddisonCMS\\storage\\database.sqlite'),
             'driver' => 'sqlite',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'prefix' => '',
@@ -55,7 +55,7 @@ return [
             'strict' => true,
             'unix_socket' => env('DB_SOCKET', ''),
             'url' => env('DATABASE_URL'),
-            'username' => env('DB_USERNAME', 'root'),
+            'username' => env('DB_USERNAME', ''),
         ],
         'pgsql' => [
             'charset' => 'utf8',
@@ -69,7 +69,7 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
             'url' => env('DATABASE_URL'),
-            'username' => env('DB_USERNAME', 'winter'),
+            'username' => env('DB_USERNAME', ''),
         ],
         'sqlsrv' => [
             'charset' => 'utf8',
@@ -82,6 +82,11 @@ return [
             'prefix_indexes' => true,
             'url' => env('DATABASE_URL'),
             'username' => env('DB_USERNAME', 'winter'),
+        ],
+        'redis' => [
+            'host' => env('REDIS_HOST', null),
+            'password' => env('REDIS_PASSWORD', ''),
+            'port' => env('REDIS_PORT', null),
         ],
     ],
 
