@@ -1,0 +1,10 @@
+name: Content
+form: $/itome/mainblock/models/content/fields.yaml
+modelClass: Itome\MainBlock\Models\Content
+defaultRedirect: itome/mainblock/content
+create:
+    redirect: 'itome/mainblock/content/update/:id'
+    redirectClose: itome/mainblock/content
+update:
+    redirect: itome/mainblock/content
+    redirectClose: itome/mainblock/content

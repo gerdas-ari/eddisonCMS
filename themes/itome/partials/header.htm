@@ -1,16 +1,27 @@
+[localePicker]
+forceUrl = 0
+==
+<?php
+use RainLab\Translate\Classes\Translator;
+function onStart () {
+    $this->translator = Translator::instance();
+    $this['locale'] = $this->translator->getLocale();
+}
+?>
+==
 <header class="header">
     <div class="header__container container">
       <div class="header__line"> 
         <div class="header__wrap header__wrap--start">
-            <a class="header__link" href="/portfolio">Портфолио</a>
+            <a class="header__link" href="/portfolio">{{'portfolio'|_}}</a>
             <div class="slash">|</div>
-            <a class="header__link" href="/team">Команда</a>
+            <a class="header__link" href="/team">{{'team'|_}}</a>
             <div class="slash">|</div>
-            <a class="header__link" href="/contacts">Контакты</a>
+            <a class="header__link" href="/contacts">{{'contacts'|_}}</a>
             <div class="slash">|</div>
             <a class="header__link" href="https://www.youtube.com/channel/UC-qZOG3x8jWMv6HGcOrwk9Q" target="_blank">YouTube</a>
             <div class="slash">|</div>
-            <a class="header__link" href="https://vk.com/eddisonagency" target="_blank">ВКонтакте</a>
+            <a class="header__link" href="https://vk.com/eddisonagency" target="_blank">{{'vkontakte'|_}}</a>
         </div>
         <a class="header__logo header__logo--desktop" href="/">
             <img class="image" data-src="/themes/itome/assets/img/header_logo.svg" alt="" data-lazy=""/>
@@ -28,9 +39,9 @@
                 </svg>
                 7 (423) 264 24 02
             </a>
-          <div class="header__lang"> 
-            <button class="header__lang_btn is-active">RU</button>
-            <button class="header__lang_btn">EN</button>
+          <div class="header__lang {{activeLocale}}" > 
+            <a href="#" class="header__lang_btn" data-request="onSwitchLocale" data-request-data="locale: 'ru'">RU</a>
+            <a href="#" class="header__lang_btn" data-request="onSwitchLocale" data-request-data="locale: 'en'">EN</a>
           </div>
           <a class="header__logo header__logo--mobile" href="/">
               <img class="image" data-src="/themes/itome/assets/img/header_logo.svg" alt="" data-lazy=""/>

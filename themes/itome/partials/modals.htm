@@ -4,34 +4,34 @@
     <form class="modal_form__form" data-form-id="modal_request_contacts">
       <input type="hidden" name="form" value="Оставить заявку">
       <div class="modal_form__top">
-        <h3 class="modal_form__title">Оставить заявку</h3>
+        <h3 class="modal_form__title">{{'Оставить заявку'|_}}</h3>
       </div>
       <div class="modal_form__main">
         <div class="modal_form__inputs">
           <div class="input_wrapper input_wrapper--outlined" data-input-wrapper="">
             <input class="input_wrapper__input" type="text" name="name" required autocomplete="off">
-            <label class="input_wrapper__label">Как к вам обращаться?</label>
+            <label class="input_wrapper__label">{{'Как к вам обращаться?'|_}}</label>
             <div class="input_wrapper__tooltip" data-input-tooltip=""></div>
           </div>
           <div class="input_wrapper input_wrapper--outlined" data-input-wrapper="">
             <input class="input_wrapper__input" type="tel" name="phone" required autocomplete="off">
-            <label class="input_wrapper__label">Номер телефона</label>
+            <label class="input_wrapper__label">{{'Номер телефона'|_}}</label>
             <div class="input_wrapper__tooltip" data-input-tooltip=""></div>
           </div>
           <div class="span2 input_wrapper input_wrapper--textarea" data-input-wrapper="">
-            <textarea class="input_wrapper__textarea" name="project_info" required placeholder="Расскажите коротко о вашем проекте"></textarea>
+            <textarea class="input_wrapper__textarea" name="project_info" required placeholder="{{'Расскажите коротко о вашем проекте'|_}}"></textarea>
           </div>
         </div>
-        <button class="modal_form__btn btn btn--filled"><span class="btn__text">Оставить заявку</span></button>
-        <p class="modal_form__privacy">Отправляя данную форму, вы соглашаетесь с <a class="link" href="/privacy">политикой обработки персональных данных</a></p>
+        <button class="modal_form__btn btn btn--filled"><span class="btn__text">{{'Оставить заявку'|_}}</span></button>
+        <p class="modal_form__privacy">{{'Подтверждение политики'|_}}</a></p>
       </div>
     </form>
   </div>
   <div class="modal_form__success modal_form modal" data-modal="modal_success">
     <div class="modal_form__icon"> <img class="image" data-src="/themes/itome/assets/img/success_icon.svg" alt="" data-lazy=""/>
     </div>
-    <h3 class="modal_form__title modal_form__title--success">Заявка успешно <br> отправлена!</h3>
-    <button class="modal_form__btn btn btn--filled" data-modal-close=""><span class="btn__text">Отлично</span></button>
+    <h3 class="modal_form__title modal_form__title--success">{{'Заявка успешно отправлена!'|_}}</h3>
+    <button class="modal_form__btn btn btn--filled" data-modal-close=""><span class="btn__text">{{'Отлично'|_}}</span></button>
   </div>
   <div class="modal_menu modal" data-modal="modal_menu">
     <div class="modal_menu__container container">
@@ -48,7 +48,7 @@
           </button>
         </div>
       </div>
-      <div class="modal_menu__main"> <a class="modal_menu__link" href="/portfolio">Портфолио</a><a class="modal_menu__link" href="/team">команда</a><a class="modal_menu__link" href="/contacts">контакты</a><a class="modal_menu__link" href="https://www.youtube.com/channel/UC-qZOG3x8jWMv6HGcOrwk9Q" target="_blank">YouTube</a><a class="modal_menu__link" href="https://vk.com/eddisonagency" target="_blank">ВКонтакте</a></div>
+      <div class="modal_menu__main"> <a class="modal_menu__link" href="/portfolio">{{'portfolio'|_}}</a><a class="modal_menu__link" href="/team">{{'team'|_}}</a><a class="modal_menu__link" href="/contacts">{{'contacts'|_}}</a><a class="modal_menu__link" href="https://www.youtube.com/channel/UC-qZOG3x8jWMv6HGcOrwk9Q" target="_blank">YouTube</a><a class="modal_menu__link" href="https://vk.com/eddisonagency" target="_blank">{{'vkontakte'|_}}</a></div>
       <div class="modal_menu__bottom"><a class="modal_menu__link modal_menu__link--small" href="mailto:office@eddison.ru">office@eddison.ru</a><a class="modal_menu__link modal_menu__link--small" href="tel:7 (423) 264 24 02">7 (423) 264 24 02</a></div>
     </div>
   </div>

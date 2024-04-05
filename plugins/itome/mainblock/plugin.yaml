@@ -1,0 +1,11 @@
+plugin:
+    name: 'itome.mainblock::lang.plugin.name'
+    description: 'itome.mainblock::lang.plugin.description'
+    author: itome
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Главный экран'
+        url: itome/mainblock/content
+        icon: icon-bookmark

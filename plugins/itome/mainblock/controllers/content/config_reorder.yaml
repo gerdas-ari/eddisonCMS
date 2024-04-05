@@ -1,0 +1,4 @@
+title: Content
+modelClass: Itome\MainBlock\Models\Content
+toolbar:
+    buttons: reorder_toolbar

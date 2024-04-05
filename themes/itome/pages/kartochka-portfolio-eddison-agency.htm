@@ -30,7 +30,7 @@ function onStart() {
           <a class="portfolio_page__back_btn pagination__arrow" href="/portfolio" data-history-back="" data-scroll="" data-scroll-fadeup="">
             <svg class="icon icon--back">
               <use xlink:href="#arrow_small"></use>
-            </svg> Все проекты
+            </svg> {{'Все проекты'|_}}
           </a>
           <div class="portfolio_page__top_wrap">
             {% if card.type %}
@@ -53,19 +53,19 @@ function onStart() {
         <div class="portfolio_page__content"> 
           {% if card.client %}
               <div class="portfolio_page_block">
-                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">Клиент</h2>
+                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">{{'Клиент'|_}}</h2>
                 <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">{{card.client|raw}}</div>
               </div>
           {% endif %}
           {% if card.result %}
               <div class="portfolio_page_block">
-                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">Что мы делали</h2>
+                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">{{"Что мы делали"|_}}</h2>
                 <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">{{card.result|raw}}</div>
               </div>
           {% endif %}
           {% if card.about %}
               <div class="portfolio_page_block">
-                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">О проекте</h2>
+                <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">{{"О проекте"|_}}</h2>
                 <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">{{card.about|raw}}</div>
               </div>
           {% endif %}
@@ -92,12 +92,12 @@ function onStart() {
                     <svg class="icon icon--back">
                       <use xlink:href="#arrow_small"></use>
                     </svg>
-                    Предыдущий проект
+                    {{"Предыдущий проект"|_}}
                 </a>
             {% endif %}
             {% if nextCard %}
                 <a class="pagination__arrow" href="/portfolio/card/{{nextCard.slug}}" style="margin-left:auto;">
-                    Следующий проект 
+                    {{"Следующий проект"|_}}
                     <svg class="icon icon--forward">
                       <use xlink:href="#arrow_small"></use>
                     </svg>

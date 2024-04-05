@@ -1,0 +1,15 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+    image:
+        label: Изображение
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+        width: 150

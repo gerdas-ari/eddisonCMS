@@ -33,12 +33,13 @@
 
 	& .swiper-slide img {
 		width: auto;
+        max-width: 100%;
 		height: auto;
 		object-fit: cover;
 
 		@media(max-width:500px) {
 			display: block;
-			
+
 			width: 100%;
 		}
 	}
@@ -49,7 +50,7 @@
 		right: 0;
 		left: 50%;
 		z-index: 10;
-		
+
 		display: flex;
 		justify-content: space-between;
 
@@ -85,7 +86,7 @@
 
         transition: border .2s, background .2s, opacity .2s;
 
-		
+
 		.is-active & {
 			pointer-events: all;
 		}
@@ -117,7 +118,7 @@
 		.slider_gallery__svg {
 			left: 1px;
 		}
-        
+
 	}
 
 	&__next {
@@ -138,5 +139,5 @@
 		fill: $c-primary;
 	}
 
-	
+
 }

@@ -31,12 +31,12 @@ function onStart() {
     <section class="section portfolio">
       <div class="portfolio__container container container--first"> 
         <div class="section_block">
-          <h1 class="section_block__title" data-scroll="" data-scroll-fadeup="">Портфолио</h1>
+          <h1 class="section_block__title" data-scroll="" data-scroll-fadeup="">{{'portfolio'|_}}</h1>
         </div>
         <div class="portfolio__filters portfolio_filters" data-scroll="" data-scroll-fadeup="">
           <div class="portfolio_filters__wrap"> 
               
-              <a class="portfolio_filters__btn {{activeCategory ? '' : 'is-active'}}" href="/portfolio">Все проекты</a>
+              <a class="portfolio_filters__btn {{activeCategory ? '' : 'is-active'}}" href="/portfolio">{{'Все проекты'|_}}</a>
               
               {% for type in types %}
               
@@ -47,7 +47,7 @@ function onStart() {
               <a class="portfolio_filters__btn" href="#">CREATIVE</a>
               <a class="portfolio_filters__btn" href="#">CONSTRUCTION</a> -->
           </div>
-          <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-readonly="true" {% if paramsYear %}data-default-value='{"key":"{{paramsYear}}","value":"{{paramsYear}}"}'{% else %}data-default-value='{"key":"Все года","value":""}'{% endif %} data-dropdown-options='[{"key":"Все года","value":""},{% for year in years %}{% if loop.last != loop.index%}{"key":"{{year.name}}","value":"{{year.name}}"},{% else %}{"key":"{{year.name}}","value":"{{year.name}}"}{% endif %}{% endfor %}]'></div>
+          <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-readonly="true" {% if paramsYear %}data-default-value='{"key":"{{paramsYear}}","value":"{{paramsYear}}"}'{% else %}data-default-value='{"key":"{{'Все года'|_}}","value":""}'{% endif %} data-dropdown-options='[{"key":"{{'Все года'|_}}","value":""},{% for year in years %}{% if loop.last != loop.index%}{"key":"{{year.name}}","value":"{{year.name}}"},{% else %}{"key":"{{year.name}}","value":"{{year.name}}"}{% endif %}{% endfor %}]'></div>
         </div>
         <div class="portfolio__content">
             
@@ -58,7 +58,9 @@ function onStart() {
                 <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.path}}" alt=""/>
             </div>
             <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
-              <div class="portfolio_card__tag">{{card.type.name}}</div>
+              {% for type in card.type %}
+                    <div class="portfolio_card__tag">{{type.name}}</div>
+                {% endfor %}
             </div>
             <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">{{card.title}}</p>
         </a>

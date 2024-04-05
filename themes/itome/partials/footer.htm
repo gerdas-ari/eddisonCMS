@@ -2,16 +2,19 @@
     <div class="footer__container container">
       <div class="footer__main">
         <div class="footer__column">
-          <p class="footer__caption">Связаться с нами</p><a class="footer__link footer__link--big" href="tel:8 (423) 264-24-02">8 (423) 264-24-02</a><a class="footer__link footer__link--small" href="mailto:office@eddison.ru">office@eddison.ru</a>
+          <p class="footer__caption">{{'Связаться с нами'|_}}</p><a class="footer__link footer__link--big" href="tel:8 (423) 264-24-02">8 (423) 264-24-02</a><a class="footer__link footer__link--small" href="mailto:office@eddison.ru">office@eddison.ru</a>
         </div>
         <div class="footer__column">
-          <p class="footer__caption">Eddison</p><a class="footer__link footer__link--white" href="/portfolio">Портфолио</a><a class="footer__link footer__link--white" href="/team">Команда</a><a class="footer__link footer__link--white" href="/contacts">Контакты</a>
+          <p class="footer__caption">Eddison</p>
+          <a class="footer__link footer__link--white" href="/portfolio">{{'portfolio'|_}}</a>
+          <a class="footer__link footer__link--white" href="/team">{{'team'|_}}</a>
+          <a class="footer__link footer__link--white" href="/contacts">{{'contacts'|_}}</a>
         </div>
         <div class="footer__table"><a class="footer__table_item" href="https://vk.com/eddisonagency" target="_blank">
             <svg class="social_icon">
               <use xlink:href="#icon_vk"></use>
             </svg>
-            <div class="wrap"> <span class="text">Перейти <br> в сообщество</span>
+            <div class="wrap"> <span class="text">{{'Перейти в сообщество'|_}}</span>
               <div class="arrow"> 
                 <svg class="arrow_icon">
                   <use xlink:href="#slider_arrow"></use>
@@ -21,7 +24,7 @@
             <svg class="social_icon">
               <use xlink:href="#icon_yt"></use>
             </svg>
-            <div class="wrap"> <span class="text">Перейти на <br> YouTube канал</span>
+            <div class="wrap"> <span class="text">{{'Перейти на YouTube канал'|_}}</span>
               <div class="arrow"> 
                 <svg class="arrow_icon">
                   <use xlink:href="#slider_arrow"></use>
@@ -31,7 +34,7 @@
             <svg class="social_icon">
               <use xlink:href="#icon_wa"></use>
             </svg>
-            <div class="wrap"> <span class="text">Написать нам <br> в WhatsApp</span>
+            <div class="wrap"> <span class="text">{{'Написать нам в WhatsApp'|_}}</span>
               <div class="arrow"> 
                 <svg class="arrow_icon">
                   <use xlink:href="#slider_arrow"></use>
@@ -42,7 +45,7 @@
             <svg class="social_icon">
               <use xlink:href="#icon_request"></use>
             </svg>
-            <div class="wrap"> <span class="text">Оставить <br> заявку</span>
+            <div class="wrap"> <span class="text">{{'Оставить заявку (футер)'|_}}</span>
               <div class="arrow"> 
                 <svg class="arrow_icon">
                   <use xlink:href="#slider_arrow"></use>
@@ -53,9 +56,9 @@
         </div><a class="footer__logo" href="/"><img class="image" data-src="/themes/itome/assets/img/footer_logo.svg" alt="" data-lazy=""/></a>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copyright">© 2024 EDDISON Events & PR</p><a class="footer__copyright footer__copyright--link" href="/privacy">Политика конфиденциальности</a>
+        <p class="footer__copyright">© {{ 'now' | date('Y') }} EDDISON Events & PR</p><a class="footer__copyright footer__copyright--link" href="/privacy">{{'Политика конфиденциальности'|_}}</a>
         <div class="footer__itome"> 
-          <p class="footer__copyright footer__copyright--itome">Сделано в</p><a class="itome" href="https://itome.online/" target="_blank"><img class="image" data-src="/themes/itome/assets/img/itome_letters.svg" alt="" data-lazy=""/></a>
+          <p class="footer__copyright footer__copyright--itome">{{'Сделано в'|_}}</p><a class="itome" href="https://itome.online/" target="_blank"><img class="image" data-src="/themes/itome/assets/img/itome_letters.svg" alt="" data-lazy=""/></a>
         </div>
       </div>
     </div>

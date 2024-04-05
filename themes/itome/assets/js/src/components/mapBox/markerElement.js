@@ -49,7 +49,7 @@ class MarkerElement {
         this.marker.classList.add('marker');
         this.marker.setAttribute('data-map-link', `${this.markerData.properties.id}`);
         this.marker.innerHTML = `<div data-map-tooltip="">${this.markerData.properties.text}</div>`
-        this.marker.style.backgroundImage = 'url("/assets/img/marker.svg")';
+        this.marker.style.backgroundImage = 'url("/themes/itome/assets/img/marker.svg")';
     }
 
 }
