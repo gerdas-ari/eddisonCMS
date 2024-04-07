@@ -1,2 +1,18 @@
+==
+<?php
+function onStart() {
+    $this['locale'] = Session::get('rainlab.translate.locale');
+    if (empty($this['locale'])) {
+        Session::put('rainlab.translate.locale', 'rus');
+    }
+}
+?>
+==
+<script src="/themes/itome/assets/js/jquery.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
 <script src="/themes/itome/assets/js/build/app.js?v1.1"></script>
+{% framework extras %}
+
+<script>
+    window.appLocale = '{{locale}}'
+</script>
