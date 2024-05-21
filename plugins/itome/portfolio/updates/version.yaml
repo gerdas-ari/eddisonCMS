@@ -69,3 +69,24 @@
 1.0.24:
     - 'Updated table itome_portfolio_cards_types'
     - builder_table_update_itome_portfolio_cards_types_7.php
+1.0.25:
+    - 'Created table itome_portfolio_tags'
+    - builder_table_create_itome_portfolio_tags.php
+1.0.26:
+    - 'Created table itome_portfolio_cards_tags'
+    - builder_table_create_itome_portfolio_cards_tags.php
+1.0.27:
+    - 'Updated table itome_portfolio_tags'
+    - builder_table_update_itome_portfolio_tags.php
+1.0.28:
+    - 'Updated table itome_portfolio_tags'
+    - builder_table_update_itome_portfolio_tags_2.php
+1.0.29:
+    - 'Updated table itome_portfolio_cards_tags'
+    - builder_table_update_itome_portfolio_cards_tags.php
+1.0.30:
+    - 'Updated table itome_portfolio_cards_tags'
+    - builder_table_update_itome_portfolio_cards_tags_2.php
+1.0.31:
+    - 'Updated table itome_portfolio_tags'
+    - builder_table_update_itome_portfolio_tags_3.php

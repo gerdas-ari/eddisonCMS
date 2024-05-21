@@ -1,5 +1,5 @@
 .portfolio {
-	
+
     &__content {
         margin-top: em(68);
 
@@ -27,6 +27,52 @@
             gap: em(32);
             margin-top: em(32);
 
+        }
+    }
+
+
+
+    &__more_filters {
+        margin-top: 30px;
+    }
+}
+
+.portfolio_more_filters {
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        font-size: 18px;
+        color: white;
+
+        transition: opacity .2s;
+
+        .isActive & {
+            img {
+                transform: scale(-1);
+            }
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+
+        img {
+            width: 16px;
+            height: 15px;
+            margin-top: 2px;
+
+            transition: transform .3s;
+        }
+    }
+
+    &__content {
+        display: none;
+        margin-top: 20px;
+
+        .isActive & {
+            display: flex;
         }
     }
 }

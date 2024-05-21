@@ -28,7 +28,7 @@ class Cards extends Model
 
     public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
 
-    public $translatable = 
+    public $translatable =
     [
         'title',
         'client',
@@ -57,6 +57,12 @@ class Cards extends Model
             'key' => 'card_id',
             'otherKey' => 'type_id',
             'table' => 'itome_portfolio_cards_types'
+        ],
+        'tag' => [
+            'Itome\Portfolio\Models\Tags',
+            'key' => 'card_id',
+            'otherKey' => 'tag_id',
+            'table' => 'itome_portfolio_cards_tags'
         ],
     ];
 

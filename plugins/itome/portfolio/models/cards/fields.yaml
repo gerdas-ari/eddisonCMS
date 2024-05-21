@@ -46,9 +46,15 @@ fields:
         label: Опубликовано
         span: auto
         type: switch
+    tag:
+        label: Теги
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
     main_image:
         label: 'Главное изображение'
-        mode: file
+        mode: image
         useCaption: true
         thumbOptions:
             mode: crop

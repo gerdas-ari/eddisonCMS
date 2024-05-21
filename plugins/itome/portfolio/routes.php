@@ -3,8 +3,7 @@
 use Itome\Portfolio\Models\Years;
 use Itome\Portfolio\Models\Types;
 use Itome\Portfolio\Models\Cards;
-
-
+use Itome\Portfolio\Models\Tags;
 
 Route::get('import', function () {
 	$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();

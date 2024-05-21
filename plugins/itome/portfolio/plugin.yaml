@@ -18,6 +18,10 @@ navigation:
                 label: Категории
                 url: itome/portfolio/types
                 icon: icon-sitemap
+            side-menu-item4:
+                label: Теги
+                url: itome/portfolio/tags
+                icon: icon-tag
             side-menu-item3:
                 label: Года
                 url: itome/portfolio/years

@@ -1,0 +1,10 @@
+name: Tags
+form: $/itome/portfolio/models/tags/fields.yaml
+modelClass: Itome\Portfolio\Models\Tags
+defaultRedirect: itome/portfolio/tags
+create:
+    redirect: 'itome/portfolio/tags/update/:id'
+    redirectClose: itome/portfolio/tags
+update:
+    redirect: itome/portfolio/tags
+    redirectClose: itome/portfolio/tags

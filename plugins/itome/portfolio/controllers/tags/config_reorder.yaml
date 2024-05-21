@@ -1,0 +1,4 @@
+title: Tags
+modelClass: Itome\Portfolio\Models\Tags
+toolbar:
+    buttons: reorder_toolbar
