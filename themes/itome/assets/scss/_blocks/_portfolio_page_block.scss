@@ -2,7 +2,7 @@
 	width: 100%;
     padding: em(52) em(310);
     border-bottom: 1px solid #373737;
-    
+
     @media(max-width: 1900px) {
         padding: em(40) em(230);
     }
@@ -52,5 +52,11 @@
             font-size: em(16);
             line-height: em(24,16);
         }
+    }
+
+    &__number_list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
     }
 }

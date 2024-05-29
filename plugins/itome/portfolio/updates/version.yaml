@@ -90,3 +90,6 @@
 1.0.31:
     - 'Updated table itome_portfolio_tags'
     - builder_table_update_itome_portfolio_tags_3.php
+1.0.32:
+    - 'Updated table itome_portfolio_cards'
+    - builder_table_update_itome_portfolio_cards_10.php

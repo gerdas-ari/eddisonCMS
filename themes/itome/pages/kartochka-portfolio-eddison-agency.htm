@@ -9,8 +9,10 @@ use Itome\Portfolio\Models\Types;
 function onStart() {
     $typeSlug = $this->param('slug');
 	$cardSlug = $this->param('cardSlug');
-    $item = Cards::where('slug', $cardSlug)->first();
+    $item = Cards::where('slug', $cardSlug)->with('tag')->first();
     if (!$item) return Redirect::to('/404');
+    
+    //dd($item->toArray());
     
     $prev = Cards::where('is_published', 1)->where('created_at', '<', $item->created_at)->latest('created_at')->first();
     $next = Cards::where('is_published', 1)->where('created_at', '>', $item->created_at)->oldest()->first();
@@ -57,10 +59,16 @@ function onStart() {
                 <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">{{card.client|raw}}</div>
               </div>
           {% endif %}
-          {% if card.result %}
+          {% if card.tag|length > 0 %}
               <div class="portfolio_page_block">
                 <h2 class="portfolio_page_block__title" data-scroll="" data-scroll-fadeup="">{{"Что мы делали"|_}}</h2>
-                <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">{{card.result|raw}}</div>
+                <div class="portfolio_page_block__text" data-scroll="" data-scroll-fadeup="">
+                    <ol class="portfolio_page_block__number_list">
+                        {% for tag in card.tag %}
+                            <li>{{loop.index}}. {{tag.name|raw}}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
               </div>
           {% endif %}
           {% if card.about %}

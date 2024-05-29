@@ -16,11 +16,6 @@ fields:
         size: ''
         span: auto
         type: richeditor
-    result:
-        label: 'Что делали'
-        size: ''
-        span: auto
-        type: richeditor
     images:
         label: Галерея
         mode: file

@@ -49,6 +49,9 @@
     }
 
     &__btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
         border-radius: 100px;
         border: 1px solid #696969;
         background: #000;
@@ -70,6 +73,10 @@
         @media(max-width: 1220px) {
             font-size: em(14);
             padding: 10px 1em;
+        }
+
+        svg {
+            margin-top: -2px;
         }
 
         .portfolio_more_filters & {
