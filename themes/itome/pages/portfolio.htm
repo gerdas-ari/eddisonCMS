@@ -28,37 +28,37 @@ function onStart() {
             return $query->whereIn('slug', $tagsParams);
         } else {
             return $query;
-        }    
+        }
     })->orWhereDoesntHave('tag')->with('main_image')->orderBy('sort_order')->get();
-    
-        //TODO:refactor this...    
+
+        //TODO:refactor this...
     $pageUrl = $this->currentPageUrl();
     $activeTagParams = "";
-    
+
     $newTags = [];
-    
+
 
     $tags->map(function($tag, $index) use ($tagsParams, $tags, $year, &$newTags, $pageUrl) {
         $href = "";
         $hasTagInParams = false;
-        
+
         if ($tagsParams) {
             foreach($tagsParams as $tagParam) {
                 if ($tag->slug == $tagParam) {
                     $hasTagInParams = true;
                 } else {
-                    $href = $href . 'tag[]=' . $tagParam . '&';  
+                    $href = $href . 'tag[]=' . $tagParam . '&';
                 }
             }
         }
-                
-        if ($hasTagInParams === false) { 
+
+        if ($hasTagInParams === false) {
             $href = $href . 'tag[]=' . $tag->slug . '&';
         }
-        
+
         if ($year) {
-            $href = $href.'year='.$year;    
-        }        
+            $href = $href.'year='.$year;
+        }
 
         $newTags[$index] =[
             "hasInParams" => $hasTagInParams,
@@ -67,9 +67,9 @@ function onStart() {
             "slug" => $tag->slug
         ];
     });
-        
+
     $this['tags'] = $newTags;
-    
+
     $this['paramsYear'] = $year;
     $this['years'] = Years::all();
 }
@@ -77,24 +77,24 @@ function onStart() {
 ==
 <main class="view" data-app-layout="view" data-app-layout-namespace="examples">
     <section class="section portfolio">
-      <div class="portfolio__container container container--first"> 
+      <div class="portfolio__container container container--first">
         <div class="section_block">
           <h1 class="section_block__title" data-scroll="" data-scroll-fadeup="">{{'portfolio'|_}}</h1>
         </div>
         <div class="portfolio__filters portfolio_filters" data-scroll="" data-scroll-fadeup="">
-          <div class="portfolio_filters__wrap"> 
-              
+          <div class="portfolio_filters__wrap">
+
               <a class="portfolio_filters__btn {{activeCategory ? '' : 'is-active'}}" href="/portfolio">{{'Все проекты'|_}}</a>
-              
+
               {% for type in types %}
-              
+
               <a class="portfolio_filters__btn {{activeCategory.id == type.id ?  'is-active' : '' }}" href="/portfolio/{{type.slug}}">{{type.name}}</a>
-              
+
               {% endfor %}
           </div>
           <div class="portfolio_filters__dropdown" data-dropdown="" data-dropdown-name="years" data-dropdown-readonly="true" {% if paramsYear %}data-default-value='{"key":"{{paramsYear}}","value":"{{paramsYear}}"}'{% else %}data-default-value='{"key":"{{'Все года'|_}}","value":""}'{% endif %} data-dropdown-options='[{"key":"{{'Все года'|_}}","value":""},{% for year in years %}{% if loop.last != loop.index%}{"key":"{{year.name}}","value":"{{year.name}}"},{% else %}{"key":"{{year.name}}","value":"{{year.name}}"}{% endif %}{% endfor %}]'></div>
         </div>
-        <div class="portfolio__more_filters {{activeTags ? 'isActive' : ''}}">
+        <div class="portfolio__more_filters portfolio_more_filters {{activeTags ? 'isActive' : ''}}">
           <button class="portfolio_more_filters__btn">
               Доп фильтры
               <img src="/themes/itome/assets/img/arrow_dropdown.svg"/>
@@ -108,23 +108,23 @@ function onStart() {
           </div>
         </div>
         <div class="portfolio__content">
-            
+
             {% for card in cards %}
-            
+
             <a class="portfolio_card" href="/portfolio/card/{{card.slug}}" data-scroll="" data-scroll-fadeup="">
             <div class="portfolio_card__img" data-scroll="" data-scroll-fadeup="">
                 <img class="image" data-lazy="data-lazy" data-src="{{card.main_image.path}}" alt=""/>
             </div>
-            <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup=""> 
+            <div class="portfolio_card__tags" data-scroll="" data-scroll-fadeup="">
               {% for type in card.type %}
                     <div class="portfolio_card__tag">{{type.name}}</div>
                 {% endfor %}
             </div>
             <p class="portfolio_card__text" data-scroll="" data-scroll-fadeup="">{{card.title}}</p>
         </a>
-        
+
         {% endfor %}
-        
+
         </div>
       </div>
     </section>

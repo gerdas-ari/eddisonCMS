@@ -28,6 +28,7 @@ function preloaderCounter () {
             else{
                 window.cancelAnimationFrame(window.requestAnimationFrame(step));
             }
+            
         };
 
         //start animating

@@ -38,6 +38,7 @@
 }
 
 .portfolio_more_filters {
+
     &__btn {
         display: flex;
         align-items: center;
@@ -49,6 +50,7 @@
         transition: opacity .2s;
 
         .isActive & {
+
             img {
                 transform: scale(-1);
             }
@@ -70,6 +72,18 @@
     &__content {
         display: none;
         margin-top: 20px;
+
+        max-width: 70%;
+        flex-wrap: wrap;
+
+
+        @media (max-width: 1440px) {
+            max-width: 80%;
+        }
+
+        @media (max-width: 1300px) {
+            max-width: 100%;
+        }
 
         .isActive & {
             display: flex;
